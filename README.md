@@ -1,5 +1,5 @@
 # CaptCheck
-A quiz app to test your nerd knowledge
+A quiz app to test your nerd knowledge  
 Check it out live [here](https://captcheck-ef95e.web.app/)
 
 # Prerequisites
