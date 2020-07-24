@@ -2,8 +2,8 @@
 A quiz app to test your nerd knowledge
 
 # Prerequisites
--Node 12.18.3+ 
--Firebase tools 8.6+
+-Node 12.18.3+  
+-Firebase tools 8.6+ 
 
 # Run instructions
 1. `git clone https://github.com/jeregrande/CaptCheck.git`
