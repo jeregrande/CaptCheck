@@ -40,6 +40,16 @@ export const Wrapper = styled.div`
         margin: 0;
     }
 
+    .end-message {
+        color: #666;
+        font-size: 1rem;
+        margin: 0;
+        padding: .5em 50%;
+        white-space: nowrap;
+        border-radius: .2em;
+        background-color: white;
+    }
+
     h1 {
         font-family: Helvetica, sans-serif;
         background-image: linear-gradient(180deg, #EEE, #EEE);

@@ -23,6 +23,7 @@ const App = () => {
   const [number, setNumber] = useState(0);
   const [userAnswers, setUserAnswers] = useState<AnswerObject[]>([]);
   const [score, setScore] = useState(0);
+  const [passed, setPassed] = useState(false);
   const [gameOver, setGameOver] = useState(true);
   const [firstGame, setFirstGame] = useState(true);
 
@@ -32,6 +33,7 @@ const App = () => {
     setLoading(true);
     setGameOver(false);
     setFirstGame(false);
+    setPassed(false);
 
     var newQuestions = await fetchQuizQuestions(
       TOTAL_QUESTIONS,
@@ -97,6 +99,11 @@ const App = () => {
     const nextQuestion = number + 1;
 
     if (nextQuestion === TOTAL_QUESTIONS) {
+      if(score > 7) {
+        setPassed(true);
+      } else {
+        setPassed(false);
+      }
       setGameOver(true);
     } else {
       setNumber(nextQuestion);
@@ -110,6 +117,10 @@ const App = () => {
       <h1>CaptCheck</h1>
 
       {gameOver && !firstGame ? ( <p className="score">Score: {score}</p>) : null}
+
+      {gameOver && !firstGame && !passed ? ( <p className="end-message">Go for a higher score</p>) : null}
+
+      {gameOver && !firstGame && passed ? ( <p className="end-message">You passed, nice</p>) : null}
 
       {gameOver ? (
         <button className="start" onClick={startQuiz}>
