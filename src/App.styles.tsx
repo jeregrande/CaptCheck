@@ -41,13 +41,13 @@ export const Wrapper = styled.div`
     }
 
     .end-message {
-        color: #666;
+        color: #333;
         font-size: 1rem;
         margin: 0;
         padding: .5em 50%;
         white-space: nowrap;
         border-radius: .2em;
-        background-color: white;
+        background-color: #DDD;
     }
 
     h1 {
