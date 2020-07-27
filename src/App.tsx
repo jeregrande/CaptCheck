@@ -118,7 +118,7 @@ const App = () => {
 
       {gameOver && !firstGame ? ( <p className="score">Score: {score}</p>) : null}
 
-      {gameOver && !firstGame && !passed ? ( <p className="end-message">Go for a higher score</p>) : null}
+      {gameOver && !firstGame && !passed ? ( <p className="end-message">Aim for a higher score</p>) : null}
 
       {gameOver && !firstGame && passed ? ( <p className="end-message">You passed, nice</p>) : null}
 
