@@ -1,0 +1,8 @@
+@font-face {
+    font-family: '243ground';
+    src: url('./fonts/243ga.woff2') format('woff2'),
+        url('./fonts/243ga.woff') format('woff'),
+        url('./fonts/243ga.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}

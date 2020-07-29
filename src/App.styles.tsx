@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
+import './app.css';
 //@ts-ignore
 
 export const GlobalStyle = createGlobalStyle `
@@ -51,17 +52,11 @@ export const Wrapper = styled.div`
     }
 
     h1 {
-        font-family: Helvetica, sans-serif;
-        background-image: linear-gradient(180deg, #EEE, #EEE);
-        background-size: 100%;
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        -moz-background-clip: text;
-        -moz-text-fill-color: transparent;
+        font-family: 243ground, Helvetica;
+        color: #eee;
         filter: drop-shadow(2px 2px #333s);
-        font-size: 70px;
-        font-weight: 400;
+        font-size: 4.5em;
+        font-weight: 300;
         text-align: center;
         margin: 20px;
     }
