@@ -26,9 +26,28 @@ const App = () => {
   const [passed, setPassed] = useState(false);
   const [gameOver, setGameOver] = useState(true);
   const [firstGame, setFirstGame] = useState(true);
+  let level = 0;
 
   console.log(questions);
   
+  const startEasy = () => {
+    level = 0;
+    console.log("startEasy ran, level= " + level);
+    startQuiz();
+  };
+
+  const startMedium = () => {
+    level = 1;
+    console.log("startMedium ran, level= " + level);
+    startQuiz();
+  };
+
+  const startHard = () => {
+    level = 2;
+    console.log("startHard ran, level= " + level);
+    startQuiz();
+  };
+
   const startQuiz = async () => {
     setLoading(true);
     setGameOver(false);
@@ -41,12 +60,12 @@ const App = () => {
       Difficulty.EASY
     );
 
-    switch(Math.floor(Math.random() * 3)) {
-      case 0:
+    switch(level) {
+      case 2:
         newQuestions = await fetchQuizQuestions(
           TOTAL_QUESTIONS,
           randomCategory(),
-          Difficulty.EASY
+          Difficulty.HARD
         );
         break;
       case 1:
@@ -56,11 +75,11 @@ const App = () => {
           Difficulty.MEDIUM
         );
         break;
-      default:
+      case 0:
         newQuestions = await fetchQuizQuestions(
           TOTAL_QUESTIONS,
           randomCategory(),
-          Difficulty.HARD
+          Difficulty.EASY
         );
     }
 
@@ -122,11 +141,21 @@ const App = () => {
 
       {gameOver && !firstGame && passed ? ( <p className="end-message">You passed, nice</p>) : null}
 
-      {gameOver ? (
-        <button className="start" onClick={startQuiz}>
-          Start
-        </button>
-       ) : null}
+      {gameOver && (
+        <div className="start-wrapper">
+          <button className="start" onClick={startEasy}>
+            Easy
+          </button>
+
+          <button className="start" onClick={startMedium}>
+            Medium
+          </button>
+
+          <button className="start" onClick={startHard}>
+            Hard
+          </button>
+        </div>
+       )}
 
       {!gameOver && !loading ? <p className="score">Score: {score}</p> : null}
 
