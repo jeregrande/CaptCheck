@@ -4,11 +4,11 @@ export const shuffleArray = (array: any[]) =>
 export const randomCategory = () => {
     switch(Math.floor(Math.random() * 4)) {
         case 0:
-            return 15;  /* Viddy Games */
-        case 1:
-            return 18;  /* Comp sci */
-        case 2:
             return 9;   /* General Knowledge */
+        case 1:
+            return 15;  /* Viddy Games */
+        case 2:
+            return 18;  /* Comp sci */
         default:
             return 31;  /* Anime & Manga */
     }

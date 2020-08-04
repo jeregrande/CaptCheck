@@ -23,6 +23,7 @@ const App = () => {
   const [number, setNumber] = useState(0);
   const [userAnswers, setUserAnswers] = useState<AnswerObject[]>([]);
   const [score, setScore] = useState(0);
+  const [category, setCategory] = useState("String");
   const [passed, setPassed] = useState(false);
   const [gameOver, setGameOver] = useState(true);
   const [firstGame, setFirstGame] = useState(true);
@@ -54,9 +55,11 @@ const App = () => {
     setFirstGame(false);
     setPassed(false);
 
+    var newCategory = randomCategory();
+
     var newQuestions = await fetchQuizQuestions(
       TOTAL_QUESTIONS,
-      randomCategory(),
+      newCategory,
       Difficulty.EASY
     );
 
@@ -64,25 +67,39 @@ const App = () => {
       case 2:
         newQuestions = await fetchQuizQuestions(
           TOTAL_QUESTIONS,
-          randomCategory(),
+          newCategory,
           Difficulty.HARD
         );
         break;
       case 1:
         newQuestions = await fetchQuizQuestions(
           TOTAL_QUESTIONS,
-          randomCategory(),
+          newCategory,
           Difficulty.MEDIUM
         );
         break;
       case 0:
         newQuestions = await fetchQuizQuestions(
           TOTAL_QUESTIONS,
-          randomCategory(),
+          newCategory,
           Difficulty.EASY
         );
     }
 
+    switch(newCategory) {
+      case 9:
+        setCategory("General Knowledge");
+        break;
+      case 15:
+        setCategory("Video Games");
+        break;
+      case 18:
+        setCategory("Computer Science");
+        break;
+      case 31:
+        setCategory("Anime & Manga");
+        break;
+    }
   
     setQuestions(newQuestions);
     setScore(0);
@@ -134,6 +151,10 @@ const App = () => {
     <GlobalStyle />
     <Wrapper>
       <h1>CaptCheck</h1>
+
+      {!gameOver && !loading ? <p className="category">Category: {category}</p> : null}
+
+      {gameOver && !firstGame ? ( <p className="category">Category: {category}</p>) : null}
 
       {gameOver && !firstGame ? ( <p className="score">Score: {score}</p>) : null}
 

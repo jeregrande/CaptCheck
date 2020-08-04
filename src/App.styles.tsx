@@ -35,6 +35,14 @@ export const Wrapper = styled.div`
         color: #FFF;
     }
 
+    .category {
+        font-family: helvetica;
+        font-weight: bold;
+        letter-spacing: 1px;
+        margin: 0;
+        padding: 0;
+        color: #00d0ff;
+    }
     .score {
         color: #FFF;
         font-size: 2rem;
@@ -58,7 +66,8 @@ export const Wrapper = styled.div`
         font-size: 4.5em;
         font-weight: 300;
         text-align: center;
-        margin: 20px;
+        margin: 0 20px;
+        padding-bottom: 0;
     }
 
     .start, 
