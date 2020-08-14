@@ -28,23 +28,27 @@ const App = () => {
   const [gameOver, setGameOver] = useState(true);
   const [firstGame, setFirstGame] = useState(true);
   let level = 0;
+  let diffLabel = "";
 
   console.log(questions);
   
   const startEasy = () => {
     level = 0;
+    diffLabel = "Easy";
     console.log("startEasy ran, level= " + level);
     startQuiz();
   };
 
   const startMedium = () => {
     level = 1;
+    diffLabel = "Medium";
     console.log("startMedium ran, level= " + level);
     startQuiz();
   };
 
   const startHard = () => {
     level = 2;
+    diffLabel = "Hard";
     console.log("startHard ran, level= " + level);
     startQuiz();
   };
@@ -152,9 +156,9 @@ const App = () => {
     <Wrapper>
       <h1>CaptCheck</h1>
 
-      {!gameOver && !loading ? <p className="category">Category: {category}</p> : null}
+      {!gameOver && !loading ? <p className="category">Category: {category} - {diffLabel}</p> : null}
 
-      {gameOver && !firstGame ? ( <p className="category">Category: {category}</p>) : null}
+      {gameOver && !firstGame ? ( <p className="category">Category: {category} - {diffLabel}</p>) : null}
 
       {gameOver && !firstGame ? ( <p className="score">Score: {score}</p>) : null}
 
